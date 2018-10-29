@@ -1,0 +1,188 @@
+body {
+    background-color: #efefe2;
+    overflow-x: hidden;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 0;
+}
+.topnav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1366px;
+    margin: auto;
+}
+.logo img{
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.topnav a {
+    display: block;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: 'ClearSansBold', sans-serif;
+    margin: 10px;
+}
+
+.topnav a:not(:first-child):hover {
+    color: #ee5575;
+}
+
+.topnav a.active {
+    color: #ee5575;
+    padding-top: 5px;
+}
+
+.topnav a.active::after {
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: #efcfcd;
+    display: block;
+    position: relative;
+    top: 25px;
+}
+
+.topnav a.logo {
+    margin-right: auto;
+    order: -2;
+}
+
+.topnav a.login-btn {
+    margin-left: auto;
+}
+
+.topnav a.order-btn {
+    color: #f1f4f7;
+    background-color: #2f3a3d;
+    padding: 10px 20px;
+}
+
+.topnav a.login-btn {
+    border: 1px solid #2f3a3d;
+    padding: 9px 19px;
+}
+
+.topnav .icon {
+    display: none;
+} 
+
+main {
+    display: grid;
+    grid-template-columns: 33% 66%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+        "logo header"
+        "logo content";
+    margin-top: 15vh;
+}
+
+.moon {
+    grid-area: logo;
+    align-self: end;
+}
+
+.header {
+    grid-area: header;
+    color: #d0ca9e;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 62px;
+}
+
+.columns {
+    grid-area: content;
+    display: flex;
+    justify-content: space-between;
+}
+.columns div {
+    max-width: 30%;
+}
+
+.columns .column-header {
+    position: relative;
+}
+.columns .column-header span{
+    display: block;
+    margin: 0;
+    font-size: 26px;
+    height: 30px;
+    vertical-align: bottom;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+.columns .column-header img {
+    width: 100vw;
+    height: 1px;
+    position: absolute;
+    left: -33vw;
+    animation: appear 3s linear;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.columns .text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+@keyframes appear{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+    .topnav {
+        flex-direction: column;
+    }
+    .topnav a.login-btn {
+        display: block;
+        margin-left: 0;
+        margin-right: auto;
+        order: -1;
+    }
+    .topnav a.active::after {
+        display: none;
+    }
+    .topnav a.icon {
+        display: block;
+        order: 0;
+        font-size: 30px;
+        position: absolute;
+        right: 0;
+        top: 70px;
+    }
+    .topnav.responsive a {
+        display: block;
+        text-align: left;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .columns {
+        flex-direction: column;
+    }
+    .header {
+        font-size: 32px;
+    }
+    .moon {
+        align-self: center;
+    }
+    .columns div {
+        margin-bottom: 60px;
+    }
+    .columns .column-header img {
+        left: -5px;
+    }
+}
