@@ -98,7 +98,7 @@ main {
     justify-content: space-between;
 }
 .columns div {
-    max-width: 30%;
+   width: 30%;
 }
 
 .columns .column-header {
@@ -181,6 +181,7 @@ main {
     }
     .columns div {
         margin-bottom: 60px;
+        width: 100%;
     }
     .columns .column-header img {
         left: -5px;
